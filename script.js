@@ -83,4 +83,24 @@ function hourNumberSwitch (incString){
 
 function saveSchedule(hourString, value) {
     
+    if(!localStorage.getItem('workDay')) {
+        initializeLocalStorage();
+    }
+    let workHours = JSON.parse(localStorage.getItem('entireWorkDay'));
+    workHours[hourString] = val
+
+    saveLocalStorage(workHours);
+}
+
+function initializeLocalStorage() {
+    localStorage.setItem ('entireWorkDay', JSON.stringify(entireWorkDay))
+}
+
+function saveLocalStorage(incObj) {
+    localStorage.setItem('entireWorkDay', JSON.stringify(incObj))
+}
+
+function loadCorrectDataSet () {
+    result = localStorage.getItem('entireWorkDay')
+    return (result ? result : entireWorkDay);
 }
