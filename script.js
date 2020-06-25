@@ -45,9 +45,9 @@ for (property in entireWorkDay) {
     let timeAsString = $('time-id').text();
     let calcTime = hourNumberSwitch(timeAsString);
 
-    if (timeNumber < currentHour){
+    if (calcTime < currentHour){
         $(textInput).addClass("past");
-    } else if (timeNumber > presentHour) {
+    } else if (calcTime > presentHour) {
         $(textInput).addClass("future");
     } else {
         $(textInput).addClass("present");
