@@ -1,7 +1,9 @@
-let headerCurrentDay = document.getElementById("currentDay");
-headerCurrentDay.textContent = moment().format('dddd') + ", " + moment().format('MMMM Do YYYY, h:mm:ss a');
 
-
+ var date = $('#currentDay')
+ 
+ var current = moment().format('MMMM Do YYYY, h:mm:ss A')
+ var dateHeader = (date)
+  dateHeader.text(current)
 //initial object that will be interacting with local storage.
 let entireWorkDay = {
     "8 AM" : "",
@@ -23,7 +25,9 @@ $(document).ready(function() {
         updateDailyTasks(entireWorkDay);
     } else {
         updateDailyTasks(JSON.parse(localStorage.getItem('entireWorkday')))
-    }
+        }
+    
+    
 });
 
 function updateDailyTasks (workDayObject){
@@ -38,4 +42,21 @@ for (property in entireWorkDay) {
     $(textInput).text(entireWorkDay[property]);
     let currentHour=moment().hour();
     let timeId = "#time" + counter;
+    let timeAsString = $('time-id').text();
+    let calcTime = hourNumberSwitch(timeAsString);
+
+    if (timeNumber < currentHour){
+        $(textInput).addClass("past");
+    } else if (timeNumber > presentHour) {
+        $(textInput).addClass("future");
+    } else {
+        $(textInput).addClass("present");
+    }
+    counter ++;
 }   
+
+function hourNumberSwitch (incString){
+    switch(incString){
+        case "8 AM" : return 8;
+    }
+}
