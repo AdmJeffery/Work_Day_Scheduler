@@ -11,3 +11,5 @@ let entireWorkDay = {
     "5 PM" : "",
 };
 
+let counter = 1;
+
