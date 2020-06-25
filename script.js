@@ -39,10 +39,14 @@ function updateDailyTasks (workDayObject){
 
 for (property in entireWorkDay) {
     let textInput = "#text-input"+counter;
-    $(textInput).text(entireWorkDay[property]);
-    let currentHour=moment().hour();
     let timeId = "#time" + counter;
-    let timeAsString = $('time-id').text();
+    
+    $(textInput).text(entireWorkDay[property]);
+    
+    let currentHour = moment().hour();
+    
+    
+    let timeAsString = $(timeId).text();
     let calcTime = hourNumberSwitch(timeAsString);
 
     if (calcTime < currentHour){
@@ -53,7 +57,13 @@ for (property in entireWorkDay) {
         $(textInput).addClass("present");
     }
     counter ++;
-}   
+}  
+
+$('button').click(function() {
+    value = $(this).siblings("textarea").val();
+    hourString = $(this).siblings("div").text();
+
+});
 
 function hourNumberSwitch (incString){
     switch(incString){
@@ -68,4 +78,4 @@ function hourNumberSwitch (incString){
         case "4 PM" : return 4;
         case "5 PM" : return 5;
     }
-}
+})
