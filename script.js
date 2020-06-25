@@ -58,5 +58,14 @@ for (property in entireWorkDay) {
 function hourNumberSwitch (incString){
     switch(incString){
         case "8 AM" : return 8;
+        case "9 AM" : return 9;
+        case "10 AM": return 10;
+        case "11 AM" : return 11;
+        case "12 PM" : return 12;
+        case "1 PM" : return 1;
+        case "2 PM" : return 2;
+        case "3 PM" : return 3;
+        case "4 PM" : return 4;
+        case "5 PM" : return 5;
     }
 }
