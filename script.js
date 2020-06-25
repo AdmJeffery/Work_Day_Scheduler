@@ -63,6 +63,7 @@ $('button').click(function() {
     value = $(this).siblings("textarea").val();
     hourString = $(this).siblings("div").text();
 
+    saveSchedule(hourString, value);
 });
 
 function hourNumberSwitch (incString){
@@ -78,4 +79,8 @@ function hourNumberSwitch (incString){
         case "4 PM" : return 4;
         case "5 PM" : return 5;
     }
-})
+}
+
+function saveSchedule(hourString, value) {
+    
+}
