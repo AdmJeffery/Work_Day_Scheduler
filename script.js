@@ -1,3 +1,8 @@
+let headerCurrentDay = document.getElementById("currentDay");
+headerCurrentDay.textContent = moment().format('dddd') + ", " + moment().format('MMMM Do YYYY, h:mm:ss a');
+
+
+//initial object that will be interacting with local storage.
 let entireWorkDay = {
     "8 AM" : "",
     "9 AM" : "",
@@ -27,3 +32,10 @@ function updateDailyTasks (workDayObject){
     $(this).children("textarea").text(dayObject[texting.text()])
  })   
 }
+
+for (property in entireWorkDay) {
+    let textInput = "#text-input"+counter;
+    $(textInput).text(entireWorkDay[property]);
+    let currentHour=moment().hour();
+    let timeId = "#time" + counter;
+}   
