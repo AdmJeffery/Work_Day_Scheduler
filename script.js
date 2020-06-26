@@ -77,11 +77,11 @@ function hourNumberSwitch (incString){
         case "10 AM": return 10;
         case "11 AM" : return 11;
         case "12 PM" : return 12;
-        case "1 PM" : return 1;
-        case "2 PM" : return 2;
-        case "3 PM" : return 3;
-        case "4 PM" : return 4;
-        case "5 PM" : return 5;
+        case "1 PM" : return 13;
+        case "2 PM" : return 14;
+        case "3 PM" : return 15;
+        case "4 PM" : return 16;
+        case "5 PM" : return 17;
     }
 }
 //functio that actually saves data
