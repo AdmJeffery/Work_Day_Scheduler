@@ -1,9 +1,5 @@
 
- var date = $('#currentDay')
  
- var current = moment().format('MMMM Do YYYY, h:mm:ss A')
- var dateHeader = (date)
-  dateHeader.text(current)
 //initial object that will be interacting with local storage.
 let entireWorkDay = {
     "8 AM" : "",
@@ -26,14 +22,20 @@ $(document).ready(function() {
     } else {
         updateDailyTasks(JSON.parse(localStorage.getItem('entireWorkday')))
         }
-    
+        
+        var dateHeader = document.getElementById('currentDay');
+ 
+        var current = moment().format('MMMM Do YYYY,')
+       
+         dateHeader.textContent = current;
+         console.log(dateHeader);
     
 });
 
 function updateDailyTasks (workDayObject){
  $(".calender-row").each(function(index){
     let texting = $(this).children("div");
-    $(this).children("textarea").text(dayObject[texting.text()])
+    $(this).children("textarea").text(workdayObject[texting.text()])
  })   
 }
 
@@ -51,7 +53,7 @@ for (property in entireWorkDay) {
 
     if (calcTime < currentHour){
         $(textInput).addClass("past");
-    } else if (calcTime > presentHour) {
+    } else if (calcTime > currentHour) {
         $(textInput).addClass("future");
     } else {
         $(textInput).addClass("present");
@@ -87,7 +89,7 @@ function saveSchedule(hourString, value) {
         initializeLocalStorage();
     }
     let workHours = JSON.parse(localStorage.getItem('entireWorkDay'));
-    workHours[hourString] = val
+    workHours[hourString] = value
 
     saveLocalStorage(workHours);
 }
