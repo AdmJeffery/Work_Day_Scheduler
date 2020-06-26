@@ -6,7 +6,7 @@ let entireWorkDay = {
     "9 AM" : "",
     "10 AM" : "",
     "11 AM" : "",
-    "12 AM" : "",
+    "12 PM" : "",
     "1 PM"  : "",
     "2 PM" : "",
     "3 PM" : "",
@@ -20,9 +20,11 @@ $(document).ready(function() {
     if (!localStorage.getItem('entireWorkDay')){
         updateDailyTasks(entireWorkDay);
     } else {
-        updateDailyTasks(JSON.parse(localStorage.getItem('entireWorkday')))
+        let object = JSON.parse(localStorage.getItem('entireWorkDay'))
+        updateDailyTasks(object)
         }
         
+       
         var dateHeader = document.getElementById('currentDay');
  
         var current = moment().format('MMMM Do YYYY,')
@@ -97,13 +99,11 @@ function saveSchedule(hourString, value) {
 function initializeLocalStorage() {
     localStorage.setItem ('entireWorkDay', JSON.stringify(entireWorkDay))
     loadCorrectDataSet();
-    let gotObject= response;
-    return response;
-
+    
 }
 
 function saveLocalStorage(incObj) {
-   
+    
     localStorage.setItem('entireWorkDay', JSON.stringify(incObj))
 }
 
