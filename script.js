@@ -32,8 +32,8 @@ $(document).ready(function() {
     
 });
 
-function updateDailyTasks (workDayObject){
- $(".calender-row").each(function(index){
+function updateDailyTasks (workdayObject){
+ $(".calender-row").each(function(){
     let texting = $(this).children("div");
     $(this).children("textarea").text(workdayObject[texting.text()])
  })   
@@ -85,7 +85,7 @@ function hourNumberSwitch (incString){
 
 function saveSchedule(hourString, value) {
     
-    if(!localStorage.getItem('workDay')) {
+    if(!localStorage.getItem('entireWorkDay')) {
         initializeLocalStorage();
     }
     let workHours = JSON.parse(localStorage.getItem('entireWorkDay'));
@@ -96,9 +96,14 @@ function saveSchedule(hourString, value) {
 
 function initializeLocalStorage() {
     localStorage.setItem ('entireWorkDay', JSON.stringify(entireWorkDay))
+    loadCorrectDataSet();
+    let gotObject= response;
+    return response;
+
 }
 
 function saveLocalStorage(incObj) {
+   
     localStorage.setItem('entireWorkDay', JSON.stringify(incObj))
 }
 
