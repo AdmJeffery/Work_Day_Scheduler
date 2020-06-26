@@ -43,7 +43,7 @@ function updateDailyTasks (workdayObject){
 
 for (property in entireWorkDay) {
     let textInput = "#text-input"+counter;
-    let timeId = "#time" + counter;
+    let timeId = "#hour" + counter;
     
     $(textInput).text(entireWorkDay[property]);
     
