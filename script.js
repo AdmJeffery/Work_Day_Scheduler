@@ -15,7 +15,7 @@ let entireWorkDay = {
 };
 // Since I labeled several ids on each row numerically, setting this variable will let me more easily reference said ids.
 let counter = 1;
-//Initial function on page load. Sets local storage if there is none currently. Otherwise, it parses what is already there.
+//Initial function on page load. Sets local storage if there is none currently. Also utilizes updateDailyTasks function and displays date.
 $(document).ready(function() {
     if (!localStorage.getItem('entireWorkDay')){
         updateDailyTasks(entireWorkDay);
@@ -33,7 +33,7 @@ $(document).ready(function() {
          console.log(dateHeader);
     
 });
-
+//function that fills in items on list.
 function updateDailyTasks (workdayObject){
  $(".calender-row").each(function(){
     let texting = $(this).children("div");
@@ -49,7 +49,7 @@ for (property in entireWorkDay) {
     
     let currentHour = moment().hour();
     
-    
+    // this portion determines what hour it is and colorcodes page accordingly.
     let timeAsString = $(timeId).text();
     let calcTime = hourNumberSwitch(timeAsString);
 
@@ -69,7 +69,7 @@ $('button').click(function() {
 
     saveSchedule(hourString, value);
 });
-
+//main switch that is essential in determining time and color-coding.
 function hourNumberSwitch (incString){
     switch(incString){
         case "8 AM" : return 8;
@@ -84,7 +84,7 @@ function hourNumberSwitch (incString){
         case "5 PM" : return 5;
     }
 }
-
+//functio that actually saves data
 function saveSchedule(hourString, value) {
     
     if(!localStorage.getItem('entireWorkDay')) {
